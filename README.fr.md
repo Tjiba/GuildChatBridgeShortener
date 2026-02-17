@@ -1,4 +1,4 @@
-<div align="center">
+<div style="text-align: center;">
 
 # 🎮 GuildChat Shortener
 
@@ -13,7 +13,7 @@
 
 [English](README.md) | **Français**
 
-</div>
+ </div>
 
 ---
 
@@ -206,10 +206,10 @@ Développé avec ❤️ par **[Tjiba](https://github.com/Tjiba)** (MeteoFrance e
 
 ---
 
-<div align="center">
+<div style="text-align: center;">
 
 ### ⭐ Si ce mod vous est utile, n'hésitez pas à lui donner une étoile !
 
 [Télécharger](https://github.com/Tjiba/GuildChatShortener/releases) • [Signaler un bug](https://github.com/Tjiba/GuildChatShortener/issues) • [Demander une fonctionnalité](https://github.com/Tjiba/GuildChatShortener/issues)
 
-</div>
+ </div>
