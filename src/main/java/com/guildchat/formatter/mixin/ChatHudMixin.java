@@ -126,7 +126,9 @@ public class ChatHudMixin {
         if (cleaned.startsWith("[")) {
             int end = cleaned.indexOf("] ");
             if (end > 0 && end + 2 <= cleaned.length()) {
-                cleaned = cleaned.substring(end + 2);
+                String after = cleaned.substring(end + 2);
+                if (after.contains(": ")) return true;
+                cleaned = after;
             }
         }
         return cleaned.matches("^[A-Z0-9]{1,2} > .+");

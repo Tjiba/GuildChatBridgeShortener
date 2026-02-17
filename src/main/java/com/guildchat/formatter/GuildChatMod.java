@@ -42,13 +42,11 @@ public class GuildChatMod implements ClientModInitializer {
                     .then(ClientCommandManager.literal("status")
                         .executes(ctx -> {
                             BridgeConfig cfg = BridgeConfig.get();
-                            String mc = cfg.botMCName != null ? "§e" + cfg.botMCName : "§7auto";
-                            String colorName = colorNameFromCode(cfg.botAliasColor);
-                            String pseudoColorName = colorNameFromCode(cfg.discordNameColor);
+                            String mc = cfg.botMCName != null ? cfg.botMCName : "auto";
                             feedback(ctx.getSource().getClient(),
-                                "§7Bot MC: " + mc + "  §7Alias: §" + safeColorCode(cfg.botAliasColor) + cfg.botAlias +
-                                "  §7Couleur alias: §e" + colorName +
-                                "  §7Couleur pseudo: §e" + pseudoColorName);
+                                "§7Bot: §e" + mc + " §7| Alias: §b" + cfg.botAlias +
+                                " §7| Couleurs: §b" + colorNameFromCode(cfg.botAliasColor) +
+                                " §7/ §3" + colorNameFromCode(cfg.discordNameColor));
                             return 1;
                         })
                     )
