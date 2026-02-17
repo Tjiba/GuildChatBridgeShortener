@@ -43,14 +43,16 @@ public class GuildChatMod implements ClientModInitializer {
                         .executes(ctx -> {
                             BridgeConfig cfg = BridgeConfig.get();
                             String mc = cfg.botMCName != null ? cfg.botMCName : "auto";
-                            String mode = cfg.formatAllGuild 
+                            String mode = cfg.formatAllGuild
                                 ? Messages.get(Messages.BRIDGE_STATUS_MODE_ALL)
                                 : Messages.get(Messages.BRIDGE_STATUS_MODE_BRIDGE);
+                            String aliasColorCode = safeColorCode(cfg.botAliasColor);
+                            String playerColorCode = safeColorCode(cfg.discordNameColor);
                             feedback(ctx.getSource().getClient(),
                                 Messages.format(Messages.BRIDGE_STATUS,
                                     mc, cfg.botAlias,
-                                    colorNameFromCode(cfg.botAliasColor),
-                                    colorNameFromCode(cfg.discordNameColor),
+                                    "§" + aliasColorCode + colorNameFromCode(aliasColorCode),
+                                    "§" + playerColorCode + colorNameFromCode(playerColorCode),
                                     mode));
                             return 1;
                         })
