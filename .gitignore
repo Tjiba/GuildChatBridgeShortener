@@ -1,0 +1,17 @@
+# Project exclude paths
+/.gradle/
+/build/
+
+# IDE files
+/.idea/
+*.iml
+/.vscode/
+
+# Runtime/dev outputs
+/run/
+/out/
+/bin/
+
+# OS cruft
+.DS_Store
+Thumbs.db
