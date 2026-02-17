@@ -13,6 +13,8 @@
 
 [English](README.md) | **Français**
 
+<img width="265" height="61" alt="image" src="https://github.com/user-attachments/assets/6fdc0006-c53c-489d-a353-bf7e82031430" />
+
 </div>
 
 ---
