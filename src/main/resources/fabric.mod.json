@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "Guild Chat Formatter",
   "description": "Formate les messages bridge Discord dans la guild Hypixel. Commande: /bridge <BotMC> <AliasVoulu>",
-  "authors": ["KetroX"],
+  "authors": ["Tjiba"],
   "license": "MIT",
   "environment": "client",
   "entrypoints": {

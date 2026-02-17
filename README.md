@@ -1,37 +1,194 @@
-# GuildChat Bridge Shortener
+<div align="center">
 
-## Commandes en jeu
+# 🎮 GuildChat Shortener
 
-Ces commandes sont enregistrees cote client et permettent de configurer le bridge.
+### Fabric mod to shorten and customize Discord bridge messages in Hypixel guilds
 
-- `/bridge reset` : reinitialise la config (nom MC auto, alias "Bridge", couleurs par defaut).
-- `/bridge status` : affiche la configuration actuelle (nom MC, alias, couleurs).
-- `/bridge help` : affiche l aide rapide des commandes.
-- `/bridgesetup <nomMC> <alias>` : definit le nom MC du bot et l alias affiche.
-- `/bridgename reset` : remet l alias du bridge a "Bridge".
-- `/bridgename <alias>` : change l alias du bridge.
-- `/bridgecolor reset` : remet la couleur de l alias du bridge a cyan (&b).
-- `/bridgecolor <couleur>` : change la couleur de l alias du bridge.
-- `/bridgeplayercolor reset` : remet la couleur du pseudo joueur a cyan fonce (&3).
-- `/bridgeplayercolor <couleur>` : change la couleur du pseudo joueur.
-- `/bc ...` : alias court de `/bridgecolor ...`.
-- `/bpc ...` : alias court de `/bridgeplayercolor ...`.
-- `/bridgeactivateall [off]` : active le formatage pour tous les messages de guilde (ou le desactive avec `off`).
+[![Minecraft](https://img.shields.io/badge/Minecraft-1.21-brightgreen.svg)](https://www.minecraft.net/)
+[![Fabric](https://img.shields.io/badge/Fabric-0.18.4-orange.svg)](https://fabricmc.net/)
+[![Java](https://img.shields.io/badge/Java-21-blue.svg)](https://www.oracle.com/java/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Couleurs accepteees
+**English** | [Français](README.fr.md)
 
-Le parametre `<couleur>` accepte un nom FR/EN ou un code `&`/`§`.
+---
 
-- noir (&0), bleu fonce (&1), vert fonce (&2), cyan fonce (&3), rouge fonce (&4)
-- violet fonce (&5), or (&6), gris (&7), gris fonce (&8), bleu (&9)
-- vert (&a), cyan (&b), rouge (&c), rose clair (&d), jaune (&e), blanc (&f)
+</div>
 
-## Release GitHub
+## 📖 Description
 
-Build:
+**GuildChat Shortener** is a Fabric client-side mod that transforms long Discord bridge messages in your Hypixel guild into short and elegant messages. No more cluttered chat - customize the bridge display with colors and aliases to your liking!
 
-```cmd
-./gradlew build
+### ✨ Key Features
+
+- 🤖 **Automatic Detection** - The mod automatically detects Discord bridge messages
+- 🎨 **Color Customization** - Change the colors of the bridge alias and player names
+- 🏷️ **Custom Aliases** - Replace the bot name with a short alias (e.g., "Discord", "Bridge", "DC")
+- ⚙️ **Flexible Configuration** - Intuitive in-game commands to adjust settings
+- 🔄 **Smart Detection** - Automatically recognizes Discord bridge messages
+- 💾 **Automatic Saving** - Your configuration persists between sessions
+- 🌐 **Global Mode** - Enable formatting for all guild messages
+
+---
+
+## 📥 Installation
+
+1. **Prerequisites**:
+   - Minecraft **1.21** or higher
+   - [Fabric Loader](https://fabricmc.net/use/) **0.18.0** or higher
+   - [Fabric API](https://modrinth.com/mod/fabric-api)
+   - Java **21** or higher
+
+2. **Installation**:
+   - Download the `.jar` file from [Releases](../../releases)
+   - Place the file in your `mods/` folder
+   - Launch Minecraft with the Fabric profile
+
+---
+
+## 🎯 Usage
+
+### Automatic Startup
+
+**The mod automatically detects bridge messages!** You don't need to configure anything - formatting activates automatically as soon as a Discord bridge message is detected in your guild.
+
+### Manual Configuration (Optional)
+
+If automatic detection doesn't work, you can manually configure the Discord bot name:
+
+```
+/bridgesetup <mcName> <alias>
 ```
 
-Le jar a publier se trouve dans `build/libs/` (ex: `GuildChatShortener-1.0.0.jar`).
+**Example**:
+```
+/bridgesetup DiscordBot DC
+```
+
+### Main Commands
+
+| Command | Description | Example |
+|---------|-------------|---------|
+| `/bridge status` | Display current configuration | - |
+| `/bridge reset` | Reset entire configuration | - |
+| `/bridge help` | Display quick help | - |
+
+### 🏷️ Alias Management
+
+| Command | Description | Example |
+|---------|-------------|---------|
+| `/bridgename <alias>` | Change bridge alias | `/bridgename Discord` |
+| `/bridgename reset` | Reset to default alias ("Bridge") | - |
+
+### 🎨 Color Customization
+
+| Command | Alias | Description |
+|---------|-------|-------------|
+| `/bridgecolor <color>` | `/bc <color>` | Change alias color |
+| `/bridgecolor reset` | `/bc reset` | Reset to default cyan |
+| `/bridgeplayercolor <color>` | `/bpc <color>` | Change player name color |
+| `/bridgeplayercolor reset` | `/bpc reset` | Reset to default dark cyan |
+
+**Examples**:
+```
+/bc yellow         # Bridge alias in yellow
+/bpc green         # Player name in green
+/bridgecolor &e    # Alias in yellow (color code)
+```
+
+### 🌐 Global Mode
+
+Enable or disable formatting for **all** guild messages:
+
+```
+/bridgeactivateall       # Enable global mode
+/bridgeactivateall off   # Disable global mode
+```
+
+---
+
+## 🎨 Available Colors
+
+The `<color>` parameter accepts French/English names or Minecraft codes (`&` or `§`):
+
+| Name | Code | Preview |
+|------|------|---------|
+| `noir` / `black` | `&0` | Black |
+| `bleu fonce` / `dark_blue` | `&1` | Dark Blue |
+| `vert fonce` / `dark_green` | `&2` | Dark Green |
+| `cyan fonce` / `dark_aqua` | `&3` | Dark Cyan ⭐ (default player) |
+| `rouge fonce` / `dark_red` | `&4` | Dark Red |
+| `violet fonce` / `dark_purple` | `&5` | Dark Purple |
+| `or` / `gold` | `&6` | Gold |
+| `gris` / `gray` | `&7` | Gray |
+| `gris fonce` / `dark_gray` | `&8` | Dark Gray |
+| `bleu` / `blue` | `&9` | Blue |
+| `vert` / `green` | `&a` | Green |
+| `cyan` / `aqua` | `&b` | Cyan ⭐ (default bridge) |
+| `rouge` / `red` | `&c` | Red |
+| `rose clair` / `light_purple` | `&d` | Light Purple |
+| `jaune` / `yellow` | `&e` | Yellow |
+| `blanc` / `white` | `&f` | White |
+
+---
+
+## 🛠️ Development
+
+### Build the project
+
+```cmd
+gradlew.bat build
+```
+
+The compiled JAR file can be found in `build/libs/GuildChatShortener-1.0.0.jar`.
+
+### Project Structure
+
+```
+src/main/
+├── java/com/guildchat/formatter/
+│   ├── GuildChatMod.java          # Main entry point
+│   ├── BridgeConfig.java          # Configuration management
+│   └── mixin/
+│       └── ChatHudMixin.java      # Injection to format messages
+└── resources/
+    ├── fabric.mod.json            # Mod metadata
+    └── guildchat-formatter.mixins.json
+```
+
+---
+
+## 📝 Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+- 🐛 Report bugs
+- 💡 Suggest new features
+- 🔧 Submit pull requests
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT** License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👤 Author
+
+Developed with ❤️ by **[Tjiba](https://github.com/Tjiba)** (MeteoFrance in-game)
+
+---
+
+<div align="center">
+
+### ⭐ If this mod is useful to you, feel free to give it a star!
+
+[Download](../../releases) • [Report a Bug](../../issues) • [Request a Feature](../../issues)
+
+</div>
