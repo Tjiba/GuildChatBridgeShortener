@@ -31,6 +31,9 @@ public class BridgeConfig {
     // Active le formatage pour tous les messages de guilde (pas seulement le bridge)
     public boolean formatAllGuild = false;
 
+    // Active le mode couleurs aléatoires pour chaque message
+    public boolean randomMode = false;
+
     // Langue de l'interface (english ou french)
     public String language = "english";
 

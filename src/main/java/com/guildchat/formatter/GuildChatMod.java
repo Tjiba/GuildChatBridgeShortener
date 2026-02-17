@@ -30,6 +30,7 @@ public class GuildChatMod implements ClientModInitializer {
                             cfg.botAlias  = "Bridge";
                             cfg.botAliasColor = "b";
                             cfg.discordNameColor = "3";
+                            cfg.randomMode = false;
                             cfg.save();
                             BridgeConfig.reload();
                             feedback(ctx.getSource().getClient(),
@@ -46,6 +47,9 @@ public class GuildChatMod implements ClientModInitializer {
                             String mode = cfg.formatAllGuild
                                 ? Messages.get(Messages.BRIDGE_STATUS_MODE_ALL)
                                 : Messages.get(Messages.BRIDGE_STATUS_MODE_BRIDGE);
+                            String randomState = cfg.randomMode
+                                ? Messages.get(Messages.BRIDGE_STATUS_RANDOM_ON)
+                                : Messages.get(Messages.BRIDGE_STATUS_RANDOM_OFF);
                             String aliasColorCode = safeColorCode(cfg.botAliasColor);
                             String playerColorCode = safeColorCode(cfg.discordNameColor);
                             feedback(ctx.getSource().getClient(),
@@ -53,7 +57,8 @@ public class GuildChatMod implements ClientModInitializer {
                                     mc, cfg.botAlias,
                                     "§" + aliasColorCode + colorNameFromCode(aliasColorCode),
                                     "§" + playerColorCode + colorNameFromCode(playerColorCode),
-                                    mode));
+                                    mode,
+                                    randomState));
                             return 1;
                         })
                     )
@@ -68,9 +73,46 @@ public class GuildChatMod implements ClientModInitializer {
                             feedback(ctx.getSource().getClient(), Messages.get(Messages.HELP_COLOR));
                             feedback(ctx.getSource().getClient(), Messages.get(Messages.HELP_PLAYERCOLOR));
                             feedback(ctx.getSource().getClient(), Messages.get(Messages.HELP_ACTIVATEALL));
+                            feedback(ctx.getSource().getClient(), Messages.get(Messages.HELP_RANDOM));
                             feedback(ctx.getSource().getClient(), Messages.get(Messages.HELP_LANGUAGE));
                             return 1;
                         })
+                    )
+                    // /bridge random → toggle couleurs aléatoires
+                    .then(ClientCommandManager.literal("random")
+                        .executes(ctx -> {
+                            BridgeConfig cfg = BridgeConfig.get();
+                            cfg.randomMode = !cfg.randomMode;
+                            cfg.save();
+                            BridgeConfig.reload();
+                            feedback(ctx.getSource().getClient(),
+                                cfg.randomMode
+                                    ? Messages.get(Messages.RANDOM_ENABLED)
+                                    : Messages.get(Messages.RANDOM_DISABLED));
+                            return 1;
+                        })
+                        .then(ClientCommandManager.literal("on")
+                            .executes(ctx -> {
+                                BridgeConfig cfg = BridgeConfig.get();
+                                cfg.randomMode = true;
+                                cfg.save();
+                                BridgeConfig.reload();
+                                feedback(ctx.getSource().getClient(),
+                                    Messages.get(Messages.RANDOM_ENABLED));
+                                return 1;
+                            })
+                        )
+                        .then(ClientCommandManager.literal("off")
+                            .executes(ctx -> {
+                                BridgeConfig cfg = BridgeConfig.get();
+                                cfg.randomMode = false;
+                                cfg.save();
+                                BridgeConfig.reload();
+                                feedback(ctx.getSource().getClient(),
+                                    Messages.get(Messages.RANDOM_DISABLED));
+                                return 1;
+                            })
+                        )
                     )
             )
         );

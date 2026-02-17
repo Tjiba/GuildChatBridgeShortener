@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,6 +46,11 @@ public class ChatHudMixin {
         "^Guild > (?:\\[([A-Z+]+)] )?([\\w]+)(?: \\[([A-Za-z0-9+_]+)])?: (.+)$"
     );
 
+    @Unique
+    private static final String[] RANDOM_COLORS = {
+        "1", "2", "3", "4", "5", "6", "9", "a", "b", "c", "d", "e", "f"
+    };
+
     @ModifyVariable(
         method = "addMessage(Lnet/minecraft/text/Text;Lnet/minecraft/network/message/MessageSignatureData;Lnet/minecraft/client/gui/hud/MessageIndicator;)V",
         at = @At("HEAD"),
@@ -81,8 +87,11 @@ public class ChatHudMixin {
         if (!isBridgePayload) {
             String message = payload.trim();
             if (message.isEmpty()) return original;
+            String playerColorCode = cfg.randomMode
+                ? randomColorCode()
+                : safeColorCode(cfg.discordNameColor);
             String formatted = "§aG §8> "
-                + "§" + safeColorCode(cfg.discordNameColor) + botMC
+                + "§" + playerColorCode + botMC
                 + "§8: §f" + message;
             return Text.literal(formatted);
         }
@@ -113,10 +122,16 @@ public class ChatHudMixin {
 
         // 7. Construction du message formaté
         //    Format : "G > Bridge > PseudoDiscord: message"
+        String aliasColorCode = cfg.randomMode
+            ? randomColorCode()
+            : safeColorCode(cfg.botAliasColor);
+        String playerColorCode = cfg.randomMode
+            ? randomColorCode()
+            : safeColorCode(cfg.discordNameColor);
         String formatted = "§aG §8> "
-            + "§" + safeColorCode(cfg.botAliasColor) + cfg.botAlias
+            + "§" + aliasColorCode + cfg.botAlias
             + " §8> "
-            + "§" + safeColorCode(cfg.discordNameColor) + discord
+            + "§" + playerColorCode + discord
             + "§8: §f" + message;
 
         return Text.literal(formatted);
@@ -126,6 +141,11 @@ public class ChatHudMixin {
     private static String safeColorCode(String code) {
         if (code == null || code.isEmpty()) return "b";
         return code.substring(0, 1).toLowerCase();
+    }
+
+    @Unique
+    private static String randomColorCode() {
+        return RANDOM_COLORS[ThreadLocalRandom.current().nextInt(RANDOM_COLORS.length)];
     }
 
     @Unique

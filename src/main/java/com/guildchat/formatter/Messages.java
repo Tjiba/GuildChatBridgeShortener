@@ -13,6 +13,8 @@ public class Messages {
     public static final String BRIDGE_STATUS = "bridge.status";
     public static final String BRIDGE_STATUS_MODE_ALL = "bridge.status.mode.all";
     public static final String BRIDGE_STATUS_MODE_BRIDGE = "bridge.status.mode.bridge";
+    public static final String BRIDGE_STATUS_RANDOM_ON = "bridge.status.random.on";
+    public static final String BRIDGE_STATUS_RANDOM_OFF = "bridge.status.random.off";
     public static final String BRIDGE_DEFINED = "bridge.defined";
     public static final String BRIDGE_NAME_RESET = "bridge.name.reset";
     public static final String BRIDGE_NAME_SET = "bridge.name.set";
@@ -23,6 +25,8 @@ public class Messages {
     public static final String COLOR_UNKNOWN = "color.unknown";
     public static final String FORMAT_ALL_ENABLED = "format.all.enabled";
     public static final String FORMAT_ALL_DISABLED = "format.all.disabled";
+    public static final String RANDOM_ENABLED = "random.enabled";
+    public static final String RANDOM_DISABLED = "random.disabled";
     public static final String LANGUAGE_SET = "language.set";
     public static final String LANGUAGE_UNKNOWN = "language.unknown";
     public static final String LANGUAGE_AVAILABLE = "language.available";
@@ -35,6 +39,7 @@ public class Messages {
     public static final String HELP_COLOR = "help.color";
     public static final String HELP_PLAYERCOLOR = "help.playercolor";
     public static final String HELP_ACTIVATEALL = "help.activateall";
+    public static final String HELP_RANDOM = "help.random";
     public static final String HELP_LANGUAGE = "help.language";
     
     // Color names
@@ -64,14 +69,20 @@ public class Messages {
         add(BRIDGE_RESET, Language.ENGLISH, "§aBridge bot reset. Automatic detection enabled.");
         add(BRIDGE_RESET, Language.FRENCH, "§aBot bridge réinitialisé. Détection automatique activée.");
         
-        add(BRIDGE_STATUS, Language.ENGLISH, "§7Bot: §e%s §7| Alias: §b%s §7| Colors: §b%s §7/ §3%s §7| Mode: §e%s");
-        add(BRIDGE_STATUS, Language.FRENCH, "§7Bot: §e%s §7| Alias: §b%s §7| Couleurs: §b%s §7/ §3%s §7| Mode: §e%s");
+        add(BRIDGE_STATUS, Language.ENGLISH, "§7Bot: §e%s §7| Alias: §b%s §7| Colors: §b%s §7/ §3%s §7| Mode: §e%s §7| Random: %s");
+        add(BRIDGE_STATUS, Language.FRENCH, "§7Bot: §e%s §7| Alias: §b%s §7| Couleurs: §b%s §7/ §3%s §7| Mode: §e%s §7| Aléatoire: %s");
         
         add(BRIDGE_STATUS_MODE_ALL, Language.ENGLISH, "all");
         add(BRIDGE_STATUS_MODE_ALL, Language.FRENCH, "tous");
         
         add(BRIDGE_STATUS_MODE_BRIDGE, Language.ENGLISH, "bridge");
         add(BRIDGE_STATUS_MODE_BRIDGE, Language.FRENCH, "bridge");
+
+        add(BRIDGE_STATUS_RANDOM_ON, Language.ENGLISH, "§aon");
+        add(BRIDGE_STATUS_RANDOM_ON, Language.FRENCH, "§aactivé");
+
+        add(BRIDGE_STATUS_RANDOM_OFF, Language.ENGLISH, "§coff");
+        add(BRIDGE_STATUS_RANDOM_OFF, Language.FRENCH, "§cdésactivé");
         
         add(BRIDGE_DEFINED, Language.ENGLISH, "§aBridge bot defined: §e%s §7→ §b%s");
         add(BRIDGE_DEFINED, Language.FRENCH, "§aBot bridge défini : §e%s §7→ §b%s");
@@ -104,6 +115,12 @@ public class Messages {
         
         add(FORMAT_ALL_DISABLED, Language.ENGLISH, "§cGuild formatting disabled (bridge only).");
         add(FORMAT_ALL_DISABLED, Language.FRENCH, "§cFormatage guilde désactivé (bridge uniquement).");
+
+        add(RANDOM_ENABLED, Language.ENGLISH, "§aRandom colors enabled.");
+        add(RANDOM_ENABLED, Language.FRENCH, "§aCouleurs aléatoires activées.");
+
+        add(RANDOM_DISABLED, Language.ENGLISH, "§cRandom colors disabled.");
+        add(RANDOM_DISABLED, Language.FRENCH, "§cCouleurs aléatoires désactivées.");
         
         // Language
         add(LANGUAGE_SET, Language.ENGLISH, "§aLanguage set to: §e%s");
@@ -136,6 +153,9 @@ public class Messages {
         
         add(HELP_ACTIVATEALL, Language.ENGLISH, "§e/bridgeactivateall [off] §7- format all guild messages");
         add(HELP_ACTIVATEALL, Language.FRENCH, "§e/bridgeactivateall [off] §7- activer le formatage pour toute la guilde");
+
+        add(HELP_RANDOM, Language.ENGLISH, "§e/bridge random [on|off] §7- toggle random colors");
+        add(HELP_RANDOM, Language.FRENCH, "§e/bridge random [on|off] §7- activer les couleurs aléatoires");
         
         add(HELP_LANGUAGE, Language.ENGLISH, "§e/bridgelanguage <language> §7- change language (English/Français)");
         add(HELP_LANGUAGE, Language.FRENCH, "§e/bridgelanguage <langue> §7- changer la langue (English/Français)");
