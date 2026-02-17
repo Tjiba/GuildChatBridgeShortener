@@ -4,4 +4,4 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = 'guildchat-formatter'
+rootProject.name = 'GuildChatShortener'

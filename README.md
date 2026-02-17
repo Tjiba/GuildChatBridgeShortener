@@ -34,4 +34,4 @@ Build:
 ./gradlew build
 ```
 
-Le jar a publier se trouve dans `build/libs/` (ex: `guildchat-formatter-1.0.0.jar`).
+Le jar a publier se trouve dans `build/libs/` (ex: `GuildChatShortener-1.0.0.jar`).

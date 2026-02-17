@@ -7,8 +7,8 @@ gradlew.bat build
 ```
 
 Jar output:
-- `build/libs/guildchat-formatter-1.0.0.jar`
-- Optionnel: `build/libs/guildchat-formatter-1.0.0-sources.jar`
+- `build/libs/GuildChatShortener-1.0.0.jar`
+- Optionnel: `build/libs/GuildChatShortener-1.0.0-sources.jar`
 
 ## GitHub release
 
