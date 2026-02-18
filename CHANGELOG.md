@@ -1,31 +1,32 @@
 # Changelog
 
 ## 1.2.1 - 2026-02-18
-- 🐛 Suppression des imports inutilisés
-- 🐛 Correction de la gestion des URL dépréciées (Java 20+)
-- 🐛 Correction de la comparaison EnvType
-- 🐛 Suppression des attributs HTML obsolètes dans les README
-- 🐛 Nettoyage de tous les avertissements du compilateur
-- 🔧 Optimisation de la logique de comparaison des versions
-- ✨ Amélioration de la stabilité du code
+- 🐛 Removed unused imports and fields
+- 🐛 Fixed deprecated URL handling (Java 20+)
+- 🐛 Corrected EnvType comparison for environment detection
+- 🐛 Removed obsolete HTML attributes from README files
+- 🐛 Cleaned up all compiler warnings
+- 🔧 Optimized version comparison logic
+- ✨ Improved code stability
 
 ## 1.2.0 - 2026-02-18
-- ✨ Intégration complète avec ModMenu - Accès aux paramètres depuis ModMenu
-- 🎨 Menu de configuration graphique avec Cloth Config
-- 🌈 Menu déroulant des couleurs avec aperçu colorisé (Red, Blue, Green, etc.)
-- 🖼️ Support des icônes de mod (icon.png affichée dans ModMenu)
-- 🔧 Refonte du système de gestion des couleurs avec noms lisibles
-- 🐛 Correction de problèmes de duplication de fichiers lors de la compilation
-- 📝 Mise à jour du nom du mod partout (GuildChat Shortener)
-- 🌐 Ajout du lien Modrinth dans les informations du mod
+- ✨ Complete ModMenu integration - Access settings from ModMenu
+- 🎨 Graphical configuration menu with Cloth Config
+- 🌈 Color dropdown menu with colorized preview (Red, Blue, Green, etc.)
+- 🖼️ Mod icon support (icon.png displayed in ModMenu)
+- 🔧 Refactored color management system with readable names
+- 🐛 Fixed file duplication issues during compilation
+- 📝 Updated mod name everywhere (GuildChat Shortener)
+- 🌐 Added Modrinth link to mod information
 
 ## 1.1.0 - 2026-02-17
-- Ajout du système multilingue (Anglais/Français)
-- Nouvelle commande /bridgelanguage pour changer la langue
-- Tous les messages du mod sont maintenant disponibles en anglais et français
-- La langue par défaut est le français
+- Added multilingual system (English/French)
+- New /bridgelanguage command to change language
+- All mod messages now available in English and French
+- French is the default language
 
 ## 1.0.0 - 2026-02-17
-- Ajoute /bridgeactivateall pour formater les messages de guilde normaux.
-- Ameliore la detection des messages bridge (roles et formats).
-- Simplifie /bridge status et affiche le mode actif.
+- Added /bridgeactivateall to format normal guild messages
+- Improved Discord bridge message detection (roles and formats)
+- Simplified /bridge status and shows active mode
+
