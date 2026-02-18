@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.1 - 2026-02-18
+- 🐛 Suppression des imports inutilisés
+- 🐛 Correction de la gestion des URL dépréciées (Java 20+)
+- 🐛 Correction de la comparaison EnvType
+- 🐛 Suppression des attributs HTML obsolètes dans les README
+- 🐛 Nettoyage de tous les avertissements du compilateur
+- 🔧 Optimisation de la logique de comparaison des versions
+- ✨ Amélioration de la stabilité du code
+
 ## 1.2.0 - 2026-02-18
 - ✨ Intégration complète avec ModMenu - Accès aux paramètres depuis ModMenu
 - 🎨 Menu de configuration graphique avec Cloth Config

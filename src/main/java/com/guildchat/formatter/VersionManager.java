@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class VersionManager {
     
-    public static final String CURRENT_VERSION = "1.2.0";
+    public static final String CURRENT_VERSION = "1.2.1";
     private static final String GITHUB_API_URL = "https://api.github.com/repos/Tjiba/GuildChatShortener/releases/latest";
     
     private static String latestVersionOnline = null;
