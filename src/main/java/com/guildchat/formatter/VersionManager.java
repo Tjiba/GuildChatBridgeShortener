@@ -13,7 +13,12 @@ import java.util.concurrent.CompletableFuture;
 
 public class VersionManager {
     
-    public static final String CURRENT_VERSION = "1.2.3";
+    // Version dynamique lue depuis fabric.mod.json au lieu d'être codée en dur
+    public static final String CURRENT_VERSION = FabricLoader.getInstance()
+            .getModContainer("guildchat-shortener")
+            .map(container -> container.getMetadata().getVersion().getFriendlyString())
+            .orElse("unknown");
+    
     private static final String GITHUB_API_URL = "https://api.github.com/repos/Tjiba/GuildChatShortener/releases/latest";
     
     private static String latestVersionOnline = null;

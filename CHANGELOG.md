@@ -1,6 +1,19 @@
 # Changelog
 
-## 1.2.2 - 2026-02-18 (À venir)
+## 1.2.4 - 2026-02-18
+- 🔥 **MAJOR**: Version is now read dynamically from mod metadata
+- 🐛 **FIX**: No more version synchronization issues between code and gradle.properties
+- ✨ CURRENT_VERSION is now automatically synced with fabric.mod.json
+- 🎯 Eliminates false "update available" messages when already on latest version
+- 🧹 Removed hardcoded version string from VersionManager.java
+
+## 1.2.3 - 2026-02-18
+- 🔄 Silent automatic version checks (only shows messages for updates or dev versions)
+- 💬 Added dev version detection message
+- 🐛 Fixed version comparison logic
+- 🧹 Code cleanup (removed unused methods and warnings)
+
+## 1.2.2 - 2026-02-18
 - ✨ **NEW**: `/bridge update` command to manually check for updates
 - 🔄 Improved version checking system with dynamic version display
 - 🐛 **FIX**: Version comparison now correctly identifies development versions
