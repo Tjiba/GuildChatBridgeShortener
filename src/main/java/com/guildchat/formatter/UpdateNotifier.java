@@ -81,7 +81,7 @@ public class UpdateNotifier {
         VersionManager.resetVersionCache();
         
         // Utiliser CompletableFuture pour éviter le busy-waiting
-        VersionManager.checkVersionUpdateAsync(true).thenRun(() -> {
+        VersionManager.checkVersionUpdateAsyncInternal().thenRun(() -> {
             String latestVersion = VersionManager.getLatestVersionOnline();
             if (latestVersion != null) {
                 int comparison = VersionManager.compareVersions(VersionManager.CURRENT_VERSION, latestVersion);

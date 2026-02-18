@@ -21,16 +21,15 @@ public class VersionManager {
     /**
      * Vérifie la version en ligne de manière asynchrone
      */
-    public static CompletableFuture<Void> checkVersionUpdateAsync() {
-        return checkVersionUpdateAsync(false);
+    public static void checkVersionUpdateAsync() {
+        checkVersionUpdateAsyncInternal();
     }
     
     /**
-     * Vérifie la version en ligne de manière asynchrone
-     * @param force Force la vérification même si déjà en cours
-     * @return CompletableFuture qui se termine quand la vérification est complète
+     * Vérifie la version en ligne et retourne un CompletableFuture
+     * (utilisé pour la vérification manuelle)
      */
-    public static CompletableFuture<Void> checkVersionUpdateAsync(boolean force) {
+    static CompletableFuture<Void> checkVersionUpdateAsyncInternal() {
         return CompletableFuture.runAsync(() -> {
             try {
                 String latestVersion = fetchLatestVersionFromGitHub();
