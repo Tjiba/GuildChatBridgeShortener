@@ -1,12 +1,13 @@
 package com.guildchat.formatter;
 
+import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.net.URL;
+import java.net.URI;
 import java.net.HttpURLConnection;
 import java.util.concurrent.CompletableFuture;
 
@@ -14,7 +15,6 @@ public class VersionManager {
     
     public static final String CURRENT_VERSION = "1.2.0";
     private static final String GITHUB_API_URL = "https://api.github.com/repos/Tjiba/GuildChatShortener/releases/latest";
-    private static final String VERSION_KEY = "last_seen_version";
     
     private static String latestVersionOnline = null;
     private static boolean checkingVersion = false;
@@ -29,7 +29,7 @@ public class VersionManager {
             checkingVersion = true;
             try {
                 String latestVersion = fetchLatestVersionFromGitHub();
-                if (latestVersion != null && isOlderVersion(CURRENT_VERSION, latestVersion)) {
+                if (latestVersion != null && isOlderVersion(latestVersion)) {
                     latestVersionOnline = latestVersion;
                     showUpdateMessage(latestVersion);
                 }
@@ -45,7 +45,7 @@ public class VersionManager {
      * Récupère la dernière version depuis l'API GitHub
      */
     private static String fetchLatestVersionFromGitHub() throws Exception {
-        URL url = new URL(GITHUB_API_URL);
+        var url = new URI(GITHUB_API_URL).toURL();
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setConnectTimeout(5000);
@@ -75,7 +75,7 @@ public class VersionManager {
      * Affiche le message de mise à jour
      */
     private static void showUpdateMessage(String newVersion) {
-        if (FabricLoader.getInstance().getEnvironmentType().isClient()) {
+        if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
             GuildChatMod.LOGGER.info("Guild Chat Shortener update available! New version: " + newVersion + " (current: " + CURRENT_VERSION + ")");
         }
     }
@@ -88,13 +88,13 @@ public class VersionManager {
     }
     
     /**
-     * Compare deux versions (format: X.Y.Z)
-     * Retourne true si v1 < v2
+     * Compare si la version en ligne est plus récente que la version actuelle
+     * Retourne true si version en ligne > version actuelle
      */
-    private static boolean isOlderVersion(String v1, String v2) {
+    private static boolean isOlderVersion(String onlineVersion) {
         try {
-            String[] parts1 = v1.split("\\.");
-            String[] parts2 = v2.split("\\.");
+            String[] parts1 = CURRENT_VERSION.split("\\.");
+            String[] parts2 = onlineVersion.split("\\.");
             
             for (int i = 0; i < Math.max(parts1.length, parts2.length); i++) {
                 int num1 = i < parts1.length ? Integer.parseInt(parts1[i]) : 0;

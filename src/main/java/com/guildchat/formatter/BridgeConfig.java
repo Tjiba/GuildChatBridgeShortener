@@ -46,14 +46,6 @@ public class BridgeConfig {
         return lang != null ? lang : Language.ENGLISH;
     }
 
-    public String getLastSeenVersion() {
-        return lastSeenVersion;
-    }
-
-    public void setLastSeenVersion(String version) {
-        this.lastSeenVersion = version;
-    }
-
     // ── Singleton ─────────────────────────────────────────────────────────────
     public static BridgeConfig get() {
         if (instance == null) instance = load();
